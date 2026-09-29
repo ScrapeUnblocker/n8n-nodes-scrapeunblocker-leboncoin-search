@@ -1,0 +1,32 @@
+{
+	"node": "n8n-nodes-scrapeunblocker-leboncoin-search.leboncoinSearchScraper",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": [
+		"Sales",
+		"Data & Storage"
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/ScrapeUnblocker/n8n-nodes-scrapeunblocker-leboncoin-search#credentials"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/ScrapeUnblocker/n8n-nodes-scrapeunblocker-leboncoin-search#readme"
+			}
+		]
+	},
+	"alias": [
+		"leboncoin",
+		"classifieds",
+		"annonces",
+		"france",
+		"marketplace",
+		"listings",
+		"scraper",
+		"apify",
+		"scrapeunblocker"
+	]
+}
