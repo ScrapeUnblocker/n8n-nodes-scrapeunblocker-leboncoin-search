@@ -35,6 +35,9 @@ const OPTION_FIELDS: Record<string, OptionField> = {
 	page: {
 		key: 'page',
 	},
+	includeSponsored: {
+		key: 'include_sponsored',
+	},
 };
 
 function buildActorInput(
@@ -338,6 +341,14 @@ export class LeboncoinSearchScraper implements INodeType {
 						],
 						default: '',
 						description: 'Only listings in this Leboncoin category',
+					},
+					{
+						displayName: 'Include Sponsored',
+						name: 'includeSponsored',
+						type: 'boolean',
+						default: false,
+						description:
+							"Whether to also return Leboncoin's paid 'à la une' placements (marked sponsored). Off by default: Leboncoin shows the same few on every page regardless of the query, category and sort.",
 					},
 					{
 						displayName: 'Location',

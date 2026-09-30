@@ -68,6 +68,7 @@ Pick a **Resource** and an **Operation**. Each n8n input item starts one Apify r
 | Option | Description |
 |---|---|
 | **Category** | Only listings in this Leboncoin category |
+| **Include Sponsored** | Whether to also return Leboncoin's paid 'à la une' placements (marked sponsored). Off by default: Leboncoin shows the same few on every page regardless of the query, category and sort. |
 | **Location** | Where to search: a city ('Bordeaux'), a city with postcode ('Toulouse 31000'), a department code ('75') or a region ('Ile-de-France') |
 | **Max Price (EUR)** | Highest price to include, in EUR |
 | **Min Price (EUR)** | Lowest price to include, in EUR |
@@ -93,27 +94,28 @@ The node can be attached to an n8n **AI Agent** as a tool, so the agent can call
 
 - One item per listing, with ID, title, price, city, postcode, department and region, category, publication date, seller type (and name for professional sellers), attributes such as condition or surface, image and listing URL.
 - Promoted listings that Leboncoin mixes into the results are returned too, flagged with `sponsored: true`; they do not always match the search query or filters.
+- Paid 'à la une' placements are left out unless you turn on Include Sponsored.
 
-Fields of a returned item: `id`, `title`, `price`, `currency`, `location`, `city`, `zipcode`, `department`, `region`, `category`, `categoryId`, `date`, `image`, `url`, `sellerType`, `sellerName`, `sponsored`, `attributes`.
+Fields of a returned item: `id`, `title`, `price`, `currency`, `location`, `city`, `zipcode`, `department`, `region`, `category`, `categoryId`, `date`, `image`, `url`, `sellerType`, `sponsored`, `attributes`.
 
 Example item (shortened):
 
 ```json
 {
-  "id": "3271613344",
-  "title": "Studio + parking en sous sol 23,5 m2 DPE A Pont de l’arc",
-  "price": 156000,
+  "id": "3272825793",
+  "title": "Velo electrique",
+  "price": 80,
   "currency": "EUR",
-  "location": "Aix-en-Provence 13090",
-  "city": "Aix-en-Provence",
-  "zipcode": "13090",
-  "department": "Bouches-du-Rhône",
-  "region": "Provence-Alpes-Côte d'Azur",
-  "category": "Ventes immobilières",
-  "categoryId": "9",
-  "date": "2026-09-17 20:28:56",
-  "image": "https://img.leboncoin.fr/api/v1/lbcpb1/images/21/4b/5d/214b5d4dee8c6093cf07e9...",
-  "url": "https://www.leboncoin.fr/ad/ventes_immobilieres/3271613344",
+  "location": "Vieux-Boucau-les-Bains 40480",
+  "city": "Vieux-Boucau-les-Bains",
+  "zipcode": "40480",
+  "department": "Landes",
+  "region": "Aquitaine",
+  "category": "Vélos",
+  "categoryId": "55",
+  "date": "2026-09-19 18:58:53",
+  "image": "https://img.leboncoin.fr/api/v1/lbcpb1/images/16/23/4a/16234a8c4c700dadf04676...",
+  "url": "https://www.leboncoin.fr/ad/velos/3272825793",
   "...": "..."
 }
 ```
@@ -187,3 +189,4 @@ Tested with n8n 2.40 (self-hosted).
 
 - 0.1.0: Initial release
 - 0.1.1: First release published from GitHub Actions with an npm provenance statement
+- 0.1.2: Include Sponsored option - paid ad placements are left out by default
