@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-scrapeunblocker-leboncoin-search",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "n8n community node for the Leboncoin Search Scraper Apify Actor by ScrapeUnblocker: French classified ads with price, location, category, date, attributes and URL as JSON",
 	"license": "MIT",
 	"homepage": "https://github.com/ScrapeUnblocker/n8n-nodes-scrapeunblocker-leboncoin-search#readme",
